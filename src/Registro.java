@@ -1,5 +1,5 @@
 public class Registro {
-    private static Integer i=0;
+    private Integer i=0;
     private Integer nroRegistro;
     private Integer dni;
     private Integer temperatura;
@@ -33,5 +33,14 @@ public class Registro {
 
     public void setTemperatura(Integer temperatura) {
         this.temperatura = temperatura;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro{" +
+                "nroRegistro=" + nroRegistro +
+                ", dni=" + dni +
+                ", temperatura=" + temperatura +
+                '}';
     }
 }

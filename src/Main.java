@@ -18,7 +18,11 @@ public class Main {
         sistemaDeSaludMunicipal.getListaDePersonas().add(p1);
         sistemaDeSaludMunicipal.getListaDePersonas().add(p2);
 
-        ///agrego 2 kits
+        for(Persona a: sistemaDeSaludMunicipal.getListaDePersonas()){
+            System.out.println(a);
+        }
+
+        ///agrego 5 kits
         sistemaDeSaludMunicipal.setCantidadDeKits(5);
 
         //testeo todas las personas de la lista
@@ -29,6 +33,13 @@ public class Main {
             Registro r= sistemaDeSaludMunicipal.retornarRegistroPorPersona(p.getDni());
             sistemaDeSaludMunicipal.aislar(r.getTemperatura(), per, r.getNroRegistro());
         }
+
+        for(Map.Entry<Integer, Registro>entry: sistemaDeSaludMunicipal.getTesteos().entrySet()){
+            System.out.println("TEMPERATURA");
+            System.out.println(entry.getValue().getTemperatura());
+        }
+
+
 
         Sano sano= new Sano();
         List<Aislar> listaDeAislados= new ArrayList<>();

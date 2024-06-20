@@ -52,11 +52,13 @@ public class SistemaDeSaludMunicipal {
     }
 
     public void testear() throws CantidadDeTestException {
-        Random r= new Random();
-        Integer num= r.nextInt(39-36)+36;
+
         for(Persona p : this.listaDePersonas){
+            Random r= new Random();
+            Integer num= r.nextInt(39-36)+36;
             if(chequearDni(p.getDni())==1){
                 Registro registro= new Registro(p.getDni(), num);
+                testeos.put(getCantidadDeKits(), registro);
             }
             try{
                 this.setCantidadDeKits(getCantidadDeKits()-1);
@@ -85,7 +87,7 @@ public class SistemaDeSaludMunicipal {
 
     public void guardarEnArchivoBinario(String barrio, Integer nroTest) throws IOException {
 
-        BufferedWriter bufferedWriter= new BufferedWriter(new FileWriter(new File("urgente.dat")));
+        BufferedWriter bufferedWriter= new BufferedWriter(new FileWriter(new File("urgente.dat"),true));
         bufferedWriter.write(barrio);
         bufferedWriter.newLine();
         bufferedWriter.write(nroTest);
